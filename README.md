@@ -7,7 +7,6 @@ $models  = Models::all();
 $CC      = CollectionConverter::makeFromPreset(CollectionConverter::CSV, "testing");
 $CC->exportFormattedModelCollection($models);                                       
 ```
-______________________________
 ## Requirements
 PHP     >= 5.4
 Laravel >= 4.2
