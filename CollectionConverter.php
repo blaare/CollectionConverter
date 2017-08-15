@@ -357,27 +357,4 @@ class CollectionConverter
             throw new DuplicateOptionException();
     }
 
-    /**
-     * Generate a feed data file from an OutGoingFedTemplate
-     * and a collection of cars.
-     *
-     * @param OutGoingFeedTemplate                     $template
-     * @param \Illuminate\Database\Eloquent\Collection $cars
-     * @return bool|string
-     */
-    public static function generateFeedDataFile(OutGoingFeedTemplate $template, \Illuminate\Database\Eloquent\Collection $cars){
-        $dataType = $template->getDataType();
-        if($dataType == 'xml')
-            self::$xmlFormat = true;
-        else
-            self::$xmlFormat = false;
-
-        $converter = new self($template->getFileName(),
-                              $template->getDelimiter(),
-                              $template->getEnclosure(),
-                              $dataType,
-                              $template->getEscape());
-
-        return $converter->exportFormattedModelCollection($cars);
-    }
 }
